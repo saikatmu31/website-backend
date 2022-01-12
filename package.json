@@ -1,30 +1,26 @@
 {
-	"dependencies": {
-		"cors": "^2.8.5",
-		"dotenv": "^10.0.0",
-		"express": "^4.17.2",
-		"mongoose": "^6.1.5",
-		"nodemon": "^2.0.15",
-		"path": "^0.12.7"
-	},
-	"name": "website-backend",
-	"description": "",
-	"version": "1.0.0",
-	"main": "index.js",
-	"devDependencies": {},
-	"scripts": {
-		"dev": "nodemon src\\app.js",
-		"start": "node src\\app.js"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/aec-coding-club/website-backend.git"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/aec-coding-club/website-backend/issues"
-	},
-	"homepage": "https://github.com/aec-coding-club/website-backend#readme"
+  "name": "aeccc-api",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aec-coding-club/website-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aec-coding-club/website-backend/issues"
+  },
+  "homepage": "https://github.com/aec-coding-club/website-backend#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.6"
+  }
 }
