@@ -1,31 +1,24 @@
-const PORT = process.env.PORT || 3000;
+require("dotenv").config();
+require("./src/config/database").connect();
 
-const cors = require("cors");
 const express = require("express");
-const mongoose = require("mongoose");
-const { config } = require("dotenv");
-const { createServer } = require("http");
+const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
-const routes = require("./src/routes");
+const app = express();
 
-const corsConfig = require("./src/config/cors.config");
-const dbConfig = require("./src/config/db.config");
 
-const index = express();
-const server = createServer(index);
+app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-config({ path: "./src/config/.env" });
 
-index.use(cookieParser());
-index.use(express.json());
-index.use(cors(corsConfig));
-index.use(express.urlencoded({ extended: true }));
+const PORT = process.env.PORT || 4000;
 
-index.use("/api", routes);
 
-mongoose
-  .connect(process.env.databaseURI, dbConfig)
-  .then(() =>
-    server.listen(PORT, console.log.bind(this, "server initialized"))
-  );
+const eventRoute = require('./src/routes/event')
+app.use("/api", eventRoute);
+
+app.listen(PORT, () => {
+  console.log(`App listening at http://localhost:${PORT}`);
+});
